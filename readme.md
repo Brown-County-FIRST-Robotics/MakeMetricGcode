@@ -14,8 +14,9 @@ Comments are currently lost in the output because I'm lazy.
 
 
 # Install
-I'm going to try to make releases that are precompiled, but until then:
+Just download and run the releases built on github. https://github.com/Brown-County-FIRST-Robotics/MakeMetricGcode/releases/latest
 
+## If you downloaded the source
 ```bash
 git clone  git@github.com:Brown-County-FIRST-Robotics/MakeMetricGcode.git
 cd MakeMetricGcode
@@ -25,23 +26,28 @@ pip install -r requirements.txt
 ```
 
 # Run
+If you have a downloaded release executable just run it
+
+## If you downloaded the source
 ```bash
 python guimain.py 
 ```
 
 
 # Build
+## Using github actions to make a release with windows and linux asssets
+create a release in github.  A workflow in .github/workflows/release.yml will build the artifacts and stick them on the release
 ## Linux
 ```bash
 . venv/bin/activate
+pip install -r requirements.txt
 pip install -r build_requirements.txt
-python pyinstaller -F guimain.py -n make_metric_gcode
+pyinstaller -F guimain.py -n make_metric_gcode
 ```
 
-
 # Todo
-- [ ] build linux release
-- [ ] build windows release
+- [x] build linux release
+- [x] build windows release
 - [ ] build mac release
 - [ ] better GUI style: https://www.reddit.com/r/Python/comments/lps11c/how_to_make_tkinter_look_modern_how_to_use_themes/
 - [ ] stop using easygui or fix the extension ordering in file open and save dialog
